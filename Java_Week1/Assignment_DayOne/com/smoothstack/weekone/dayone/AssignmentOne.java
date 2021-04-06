@@ -1,10 +1,10 @@
 /**
- * Base package for java basics
+ * Week One Day one
  */
-package com.ss.jb.one;
+package com.smoothstack.weekone.dayone;
 
 /**
- * Assignment 1 Day 1
+ * Week 1 Day 1
  * Uses the Patterns class to print various patterns
  * 
  * @author Joa

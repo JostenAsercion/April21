@@ -1,7 +1,7 @@
 /**
- * 
+ * Week One Day One
  */
-package com.ss.jb.one;
+package com.smoothstack.weekone.dayone;
 
 /**
  * Class for printing various patterns for assignment 1
