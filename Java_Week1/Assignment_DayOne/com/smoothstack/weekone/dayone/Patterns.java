@@ -1,5 +1,5 @@
 /**
- * Week One Day One
+ * 
  */
 package com.smoothstack.weekone.dayone;
 
