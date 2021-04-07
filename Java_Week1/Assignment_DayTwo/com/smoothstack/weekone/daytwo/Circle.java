@@ -11,10 +11,10 @@ package com.smoothstack.weekone.daytwo;
  */
 public class Circle implements Shape {
 
-	/*
+	/**
 	 * @param radius the circle radius
-	 *  
-	 * @param area the area of the circle
+	 * 
+	 * @param area   the area of the circle
 	 */
 	int radius;
 	int area;

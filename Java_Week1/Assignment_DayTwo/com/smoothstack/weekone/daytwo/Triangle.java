@@ -11,12 +11,12 @@ package com.smoothstack.weekone.daytwo;
  */
 public class Triangle implements Shape {
 
-	/*
-	 * @param base the triangle base
+	/**
+	 * @param base   the triangle base
 	 * 
 	 * @param height the rectangle height
 	 * 
-	 * @param area the area of the triangle
+	 * @param area   the area of the triangle
 	 */
 	int base;
 	int height;

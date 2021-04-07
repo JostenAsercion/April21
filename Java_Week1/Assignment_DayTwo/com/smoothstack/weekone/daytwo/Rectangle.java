@@ -11,12 +11,12 @@ package com.smoothstack.weekone.daytwo;
  */
 public class Rectangle implements Shape {
 
-	/*
+	/**
 	 * @param length the rectangle length
 	 * 
-	 * @param width the rectangle width
+	 * @param width  the rectangle width
 	 * 
-	 * @param area the area of the rectangle
+	 * @param area   the area of the rectangle
 	 */
 	int length;
 	int width;
