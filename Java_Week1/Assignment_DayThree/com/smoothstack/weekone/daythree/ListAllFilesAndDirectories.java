@@ -28,6 +28,7 @@ public class ListAllFilesAndDirectories {
 		String directoryString;
 		String[] filesAndDirectories;
 		Scanner input = new Scanner(System.in);
+		input.close();
 
 		System.out.println("Enter the directory path: ");
 		directoryString = input.nextLine();
