@@ -7,7 +7,7 @@ import java.io.File;
 import java.util.Scanner;
 
 /**
- * Week 1 Day 3 Get a list of all file/directory names under a given directory
+ * Methods for use in ListAllFilesAndDirectoriesDriver
  * 
  * @author Joa
  *
@@ -16,27 +16,27 @@ import java.util.Scanner;
 public class ListAllFilesAndDirectories {
 
 	/**
-	 * @param args
+	 * Recursively prints the directory and its contents to the console
+	 * 
 	 * @param directoryString     the string entered by the user for choosing the
 	 *                            directory
 	 * @param directory           the directory to search through
 	 * @param filesAndDirectories the list containing all files and directories in
 	 *                            the given directory
+	 * @param directoryString     the string representing the directory to search
+	 *                            through. supplied by user.
 	 */
+	public void printDirectory(String directoryString) {
+		File[] filesAndDirectories;
 
-	public static void main(String[] args) {
-		String directoryString;
-		String[] filesAndDirectories;
-		Scanner input = new Scanner(System.in);
-		input.close();
-
-		System.out.println("Enter the directory path: ");
-		directoryString = input.nextLine();
 		try {
 			File directory = new File(directoryString);
-			filesAndDirectories = directory.list();
-			for (String file : filesAndDirectories) {
-				System.out.println(file);
+			filesAndDirectories = directory.listFiles();
+			for (int i = 0; i < filesAndDirectories.length; i++) {
+				System.out.println(filesAndDirectories[i].getName());
+				if (filesAndDirectories[i].isDirectory())
+					printDirectory(filesAndDirectories[i].getAbsolutePath());
+
 			}
 		} catch (NullPointerException e) {
 			System.out.println("Null pointer exception!");
