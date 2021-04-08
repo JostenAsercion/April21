@@ -4,7 +4,6 @@
 package com.smoothstack.weekone.daythree;
 
 import java.io.File;
-import java.util.Scanner;
 
 /**
  * Methods for use in ListAllFilesAndDirectoriesDriver

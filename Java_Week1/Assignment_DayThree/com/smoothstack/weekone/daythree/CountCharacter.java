@@ -24,6 +24,7 @@ public class CountCharacter {
 		char character;
 		Scanner input = new Scanner(System.in);
 		String inputString;
+		input.close();
 
 		System.out.println("Enter the character you want to check for: ");
 		inputString = input.nextLine();
