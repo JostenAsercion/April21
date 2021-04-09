@@ -18,19 +18,12 @@ public class LineTest {
 	/**
 	 * Test method for getSlope()
 	 */
-	@Test
-	public void testGetSlope() {
-		Line testLine = new Line(0, 0, 5, 10);
-		assertEquals(2, testLine.getSlope(), 0);
-	}
-
-	/**
-	 * Test method for getSlope() for dividing by zero
-	 */
 	@Test(expected = ArithmeticException.class)
-	public void testGetSlopeDivideByZero() {
-		Line testLine = new Line(0, 0, 0, 10);
-		double temp = testLine.getSlope();
+	public void testGetSlope() {
+		Line testLineA = new Line(0, 0, 5, 10);
+		Line testLineB = new Line(0, 0, 0, 10);
+		assertEquals(2, testLineA.getSlope(), .0001);
+		testLineB.getSlope();
 	}
 
 	/**
@@ -39,7 +32,7 @@ public class LineTest {
 	@Test
 	public void testGetDistance() {
 		Line testLine = new Line(0, 0, 5, 12);
-		assertEquals(13, testLine.getDistance(), 0);
+		assertEquals(13, testLine.getDistance(), .0001);
 	}
 
 	/**
