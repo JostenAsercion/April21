@@ -5,8 +5,10 @@
 	<classpathentry kind="src" path="Assignment_DayOne"/>
 	<classpathentry kind="src" path="Assignment_DayTwo"/>
 	<classpathentry kind="src" path="Assignment_DayThree"/>
+	<classpathentry kind="src" path="tests"/>
 	<classpathentry kind="lib" path="C:/Users/Joa/git/junit-4.12.jar"/>
 	<classpathentry kind="src" path="Assignment_DayFour"/>
 	<classpathentry kind="lib" path="C:/Users/Joa/git/hamcrest-2.2.jar"/>
+	<classpathentry kind="src" path="Assignment_DayFive"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
