@@ -13,7 +13,7 @@ import java.util.Arrays;
  */
 public class Lambdas {
 
-	private static int containsEHelper(String a, String b) {
+	protected static int containsEHelper(String a, String b) {
 		Integer aHasE;
 		Integer bHasE;
 		if (a.contains("e") || a.contains("E"))
