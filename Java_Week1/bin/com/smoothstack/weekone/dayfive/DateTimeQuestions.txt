@@ -1,0 +1,32 @@
+Date-Time API
+
+1. Which class would you use to store your birthday in years, months, days, seconds, and nanoseconds?
+	If I must choose one class to store all this information, I would use the java.time.LocalDateTime class because 
+	it has methods to retrieve all of the fields from year to nanoseconds.
+
+2. Given a random date, how would you find the date of the previous Thursday?
+	I will assume the random date is stored in LocalDate randomDate
+	First, I would use randomDate.getDayOfWeek().getValue() to find the current day of the week.
+	Knowing that getDayOfWeek().getValue() == 4 for Thursday, obtain the difference in days from the two values.
+	Integer difference = 4 - randomDate.getDayOfWeek().getValue() should find the difference in days from the Thursday of the week.
+	If difference is negative, use minusDays() using the absolute value of difference to navigate to the week's thursday. 
+	If positive, use plusDays() using the difference instead.
+	Finally, I would use the minusWeeks(long weeks) method with 1 as an argument to find the previous week.
+
+3. What is the difference between a ZoneId and a ZoneOffset?
+	ZoneID has unique zone names for different regions of the world. For example, EST.
+	ZoneOffset is based on the difference from Greenwich/UTC. The EST equivalent would be -05:00.
+
+4. How would you convert an Instant to a ZonedDateTime? How would you convert a ZonedDateTime to an Instant?
+	If you use the ZoneDateTime ofInstant() method using the Instant object and a zone as an argument, it will convert the Instant to a ZonedDateTime.
+	Alternatively, you can use Instant atZone() with the zone ID as an argument to do a similar thing.
+	To convert ZonedDateTime to an Instant, you can use the toInstant() method that is inherited from ChronoZonedDateTime.
+
+5. Write an example that, for a given year, reports the length of each month within that year.
+	Example in DateTimeAPI.java
+
+6. Write an example that, for a given month of the current year, lists all of the Mondays in that month.
+	Example in DateTimeAPI.java
+
+7. Write an example that tests whether a given date occurs on Friday the 13th.
+	Example in DateTimeAPI.java
