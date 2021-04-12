@@ -10,5 +10,6 @@
 	<classpathentry kind="src" path="Assignment_DayFour"/>
 	<classpathentry kind="lib" path="C:/Users/Joa/git/hamcrest-2.2.jar"/>
 	<classpathentry kind="src" path="Assignment_DayFive"/>
+	<classpathentry kind="src" path="Assignment_Weekend"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
