@@ -21,12 +21,8 @@ interface PerformOperation {
 	boolean check(int a);
 }
 
-//Methods that use lambdas
+//Methods
 class Methods {
-
-	boolean runCheck(PerformOperation p, int number) {
-		return p.check(number);
-	}
 
 	// Determines if number is odd
 	PerformOperation isOdd() {
@@ -63,38 +59,39 @@ class Methods {
 			return true;
 		};
 	}
+
+	// Returns string representing the output of the number and operation
+	String determinedAnswer(int choice, int num) {
+		PerformOperation operation;
+		String answer = "";
+		if (choice == 1) {
+			operation = isOdd();
+			answer = (operation.check(num)) ? "ODD" : "EVEN";
+		} else if (choice == 2) {
+			operation = isPrime();
+			answer = (operation.check(num)) ? "PRIME" : "COMPOSITE";
+		} else if (choice == 3) {
+			operation = isPalindrome();
+			answer = (operation.check(num)) ? "PALINDROME" : "NOT PALINDROME";
+		}
+		return answer;
+	}
 }
 
 //ENTER IN CONSOLE ONE LINE AT A TIME.
 public class Lambdas {
 	public static void main(String[] args) throws IOException {
-		PerformOperation operation;
 		Methods m = new Methods();
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int linesToRead = Integer.parseInt(br.readLine());
-		boolean trueOrFalse = false;
-		String answer = null;
 		while (linesToRead-- > 0) {
 			String s = br.readLine().trim();
 			StringTokenizer st = new StringTokenizer(s);
 			int ch = Integer.parseInt(st.nextToken());
 			int num = Integer.parseInt(st.nextToken());
 
-			if (ch == 1) {
-				operation = m.isOdd();
-				trueOrFalse = m.runCheck(operation, num);
-				answer = (trueOrFalse) ? "ODD" : "EVEN";
-			} else if (ch == 2) {
-				operation = m.isPrime();
-				trueOrFalse = m.runCheck(operation, num);
-				answer = (trueOrFalse) ? "PRIME" : "COMPOSITE";
-			} else if (ch == 3) {
-				operation = m.isPalindrome();
-				trueOrFalse = m.runCheck(operation, num);
-				answer = (trueOrFalse) ? "PALINDROME" : "NOT PALINDROME";
-			}
-			System.out.println(answer);
+			System.out.println(m.determinedAnswer(ch, num));
 		}
 	}
 }
