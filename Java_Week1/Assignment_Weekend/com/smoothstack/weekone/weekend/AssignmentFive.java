@@ -24,7 +24,7 @@ public class AssignmentFive {
 	 * possible when the target becomes zero (the sum of the used groups reaches
 	 * target).
 	 */
-	private static boolean groupSumClump(int start, int[] nums, int target) {
+	protected static boolean groupSumClump(int start, int[] nums, int target) {
 		// When there are no more groups to process, if target has a remainder
 		if (start >= nums.length)
 			return target == 0;
