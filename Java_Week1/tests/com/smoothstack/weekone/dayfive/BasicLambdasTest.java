@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class LambdasTest {
+public class BasicLambdasTest {
 
 	@Test
 	public void testContainsEHelper() {
@@ -12,9 +12,9 @@ public class LambdasTest {
 		String b = "Mhmmmmm";
 		String c = "Weeeeeh";
 
-		assertEquals(-1, Lambdas.containsEHelper(a, b));
-		assertEquals(1, Lambdas.containsEHelper(b, a));
-		assertEquals(0, Lambdas.containsEHelper(a, c));
+		assertEquals(-1, BasicLambdas.containsEHelper(a, b));
+		assertEquals(1, BasicLambdas.containsEHelper(b, a));
+		assertEquals(0, BasicLambdas.containsEHelper(a, c));
 	}
 
 }

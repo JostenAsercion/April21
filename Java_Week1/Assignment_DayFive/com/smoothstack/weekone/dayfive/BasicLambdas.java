@@ -11,7 +11,7 @@ import java.util.Arrays;
  * @author Joa
  *
  */
-public class Lambdas {
+public class BasicLambdas {
 
 	protected static int containsEHelper(String a, String b) {
 		Integer aHasE;
