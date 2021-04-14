@@ -16,7 +16,7 @@ import java.util.List;
 
 public class AssignmentTwo {
 
-	private static List<Integer> rightmost(List<Integer> numList) {
+	protected static List<Integer> rightmost(List<Integer> numList) {
 		List<Integer> right = numList;
 
 		// Every number % 10 returns rightmost digit in number

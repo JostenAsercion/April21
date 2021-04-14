@@ -16,7 +16,7 @@ import java.util.List;
 
 public class AssignmentFour {
 
-	private static List<String> removeX(List<String> list) {
+	protected static List<String> removeX(List<String> list) {
 		List<String> noX = list;
 
 		// Each x in each element is replaced with an empty string

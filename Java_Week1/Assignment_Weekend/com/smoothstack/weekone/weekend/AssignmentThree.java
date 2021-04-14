@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class AssignmentThree {
 
-	private static List<Integer> doubled(List<Integer> numList) {
+	protected static List<Integer> doubled(List<Integer> numList) {
 		List<Integer> doubled = numList;
 
 		// Multiplies each element by 2
