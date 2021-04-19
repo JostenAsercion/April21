@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.smoothstack.utopia.entity.Airplane;
 import com.smoothstack.utopia.entity.Passenger;
 
 /**
@@ -44,6 +45,17 @@ public class PassengerDAO extends BaseDAO<Passenger> {
 	// Returns a list of all flights
 	public List<Passenger> getAllPassengers() throws ClassNotFoundException, SQLException {
 		return read("select * from passenger", null);
+	}
+
+	// Returns next available passenger id
+	public Integer nextAvailableId() throws ClassNotFoundException, SQLException {
+		return getAllPassengers().size() + 1;
+	}
+
+	public Passenger getPassengerById(Integer id) throws ClassNotFoundException, SQLException {
+		List<Passenger> passengers = read("select * from passenger where id = ?", new Object[] { id });
+		Passenger passenger = passengers.get(0);
+		return passenger;
 	}
 
 	// Returns a list from a result set

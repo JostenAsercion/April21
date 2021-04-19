@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import com.smoothstack.utopia.service.AdminServiceFlights;
+import com.smoothstack.utopia.service.AdminServicePassengers;
 import com.smoothstack.utopia.service.AdminServiceSeats;
 
 /**
@@ -42,6 +43,7 @@ public class AdminMenu {
 			manageSeats();
 			break;
 		case 3:
+			managePassengers();
 			break;
 		case 4:
 			break;
@@ -105,6 +107,28 @@ public class AdminMenu {
 			break;
 		case 3:
 
+			break;
+
+		}
+		displayMenu();
+	}
+
+	public static void managePassengers() throws SQLException {
+		AdminServicePassengers asp = new AdminServicePassengers();
+		int option;
+
+		System.out.println("\n1) Add Passenger" + "\n2) Update Passenger" + "\n3) View Passengers" + "\4) Back");
+		option = input.nextInt();
+
+		switch (option) {
+		case 1:
+			asp.addNewPassenger();
+			break;
+		case 2:
+			asp.updatePassenger();
+			break;
+		case 3:
+			asp.readPassengers();
 			break;
 
 		}
