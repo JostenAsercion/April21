@@ -23,7 +23,7 @@ public class ConnectionUtil {
 	public Connection getConnection() throws ClassNotFoundException, SQLException {
 		Class.forName(driver);
 		Connection conn = DriverManager.getConnection(url, username, password);
-		conn.setAutoCommit(Boolean.FALSE);
+		conn.setAutoCommit(Boolean.FALSE); // ensures no SQL statements are committed until the commit() method
 		return conn;
 	}
 }

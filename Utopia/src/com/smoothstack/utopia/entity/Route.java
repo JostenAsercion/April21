@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package com.smoothstack.utopia.entity;
 
 /**

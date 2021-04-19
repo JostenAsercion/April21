@@ -1,12 +1,20 @@
+/**
+ * 
+ */
 package com.smoothstack.utopia.entity;
 
 /**
+ * The airport entity
+ * 
  * @author Joa
  *
  */
 public class Airport {
 
+	// The IATA ID of the airport
 	private String airportCode;
+
+	// The name of the city the airport is in
 	private String cityName;
 
 	/**
