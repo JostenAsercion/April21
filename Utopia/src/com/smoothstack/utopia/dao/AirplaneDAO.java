@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.smoothstack.utopia.entity.Airplane;
 import com.smoothstack.utopia.entity.AirplaneType;
+import com.smoothstack.utopia.entity.Route;
 
 public class AirplaneDAO extends BaseDAO<Airplane> {
 
@@ -35,6 +36,12 @@ public class AirplaneDAO extends BaseDAO<Airplane> {
 	// Returns a list of all airplanes
 	public List<Airplane> getAllAirplanes() throws ClassNotFoundException, SQLException {
 		return read("select * from airplane", null);
+	}
+
+	public Airplane getAirplaneById(Integer id) throws ClassNotFoundException, SQLException {
+		List<Airplane> airplanes = read("select * from airplane where id = ?", new Object[] { id });
+		Airplane airplane = airplanes.get(0);
+		return airplane;
 	}
 
 	// Returns a list from a result set

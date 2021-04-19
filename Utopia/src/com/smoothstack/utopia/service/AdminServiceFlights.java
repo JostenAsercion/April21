@@ -43,14 +43,14 @@ public class AdminServiceFlights {
 			flight.setRouteId(input.nextInt());
 
 			// Sets airplane used
-			apldao.getAllAirplanes()
-					.forEach(airplane -> System.out.println(airplane.getId() + ". " + airplane.getAirplaneType()));
+			apldao.getAllAirplanes().forEach(
+					airplane -> System.out.println(airplane.getId() + ". " + airplane.getAirplaneType().getType()));
 			System.out.println("Enter the Airplane ID that you wish to use for this flight");
 			flight.setAirplaneId(input.nextInt());
 
 			// Sets flight departure to a default date/time
-			System.out.println("Enter the date/time of departure for this flight (yyyy-mm-ddThh:mm:ss)");
-			flight.setDepartureTime(LocalDateTime.parse(input.nextLine()));
+			LocalDateTime dateTime = LocalDateTime.now();
+			flight.setDepartureTime(dateTime);
 
 			// Sets flight reserved seats
 			System.out.println("Enter the # of reserved seats for this flight");
@@ -66,12 +66,12 @@ public class AdminServiceFlights {
 			// Adds flight to flight table
 			fdao.addFlight(flight);
 
-			input.close();
 			conn.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 			conn.rollback();
 		} finally {
+			input.close();
 			conn.close();
 		}
 	}
@@ -106,7 +106,6 @@ public class AdminServiceFlights {
 			} else
 				System.out.println("Route already exists.");
 
-			input.close();
 			conn.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -142,7 +141,8 @@ public class AdminServiceFlights {
 
 			Flight f = new Flight();
 			System.out.println("Enter ID of flight you wish to update.");
-			f.setId(input.nextInt());
+			// f=.setId(input.nextInt());
+			f = fdao.getFlightById(input.nextInt());
 
 			// Displays all existing routes
 			rdao.getAllRoutes().forEach(route -> System.out.println(route.getId() + ". "
@@ -157,21 +157,19 @@ public class AdminServiceFlights {
 			f.setAirplaneId(input.nextInt());
 
 			// Sets flight departure to a default date/time
-			System.out.println("Enter the new date/time of departure for this flight (yyyy-mm-ddThh:mm:ss)");
-			LocalDateTime temp = LocalDateTime.parse(input.nextLine());
-			f.setDepartureTime(temp);
+			LocalDateTime dateTime = LocalDateTime.now();
+			f.setDepartureTime(dateTime);
 
 			// Sets flight reserved seats
-			System.out.println("Enter the # of reserved seats for this flight");
-			f.setReservedSeats(input.nextInt());
+			// System.out.println("Enter the # of reserved seats for this flight");
+			// f.setReservedSeats(input.nextInt());
 
 			// Sets flight seat price
-			System.out.println("Enter the seat price for this flight");
-			f.setSeatPrice(input.nextFloat());
+			// System.out.println("Enter the seat price for this flight");
+			// f.setSeatPrice(input.nextFloat());
 
 			fdao.updateFlight(f);
 
-			input.close();
 			conn.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
