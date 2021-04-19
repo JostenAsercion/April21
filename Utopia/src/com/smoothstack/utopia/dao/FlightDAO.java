@@ -6,11 +6,12 @@ package com.smoothstack.utopia.dao;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.smoothstack.utopia.entity.Flight;
+import com.smoothstack.utopia.entity.Route;
 
 /**
  * @author Joa
@@ -47,6 +48,18 @@ public class FlightDAO extends BaseDAO<Flight> {
 		return read("select * from flight", null);
 	}
 
+	// Returns route with the specified id
+	public Flight getFlightById(Integer id) throws ClassNotFoundException, SQLException {
+		List<Flight> flights = read("select * from flight where id = ?", new Object[] { id });
+		Flight flight = flights.get(0);
+		return flight;
+	}
+
+	// Returns next available flight id
+	public Integer nextAvailableId() throws ClassNotFoundException, SQLException {
+		return getAllFlights().size() + 1;
+	}
+
 	// Returns a list from a result set
 	@Override
 	public List<Flight> extractData(ResultSet rs) throws ClassNotFoundException, SQLException {
@@ -56,7 +69,7 @@ public class FlightDAO extends BaseDAO<Flight> {
 			flight.setId(rs.getInt("id"));
 			flight.setRouteId(rs.getInt("route_id"));
 			flight.setAirplaneId(rs.getInt("airplane_id"));
-			flight.setDepartureTime((Timestamp) rs.getObject("departure_time"));
+			flight.setDepartureTime((LocalDateTime) rs.getObject("departure_time"));
 			flight.setReservedSeats(rs.getInt("reserved_seats"));
 			flight.setSeatPrice(rs.getFloat("seat_price"));
 			flights.add(flight);

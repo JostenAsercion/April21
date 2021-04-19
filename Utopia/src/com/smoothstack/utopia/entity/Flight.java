@@ -3,7 +3,7 @@
  */
 package com.smoothstack.utopia.entity;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 /**
  * The flight entity
@@ -16,7 +16,7 @@ public class Flight {
 	private Integer id;
 	private Integer routeId;
 	private Integer airplaneId;
-	private Timestamp departureTime;
+	private LocalDateTime departureTime;
 	private Integer reservedSeats;
 	private Float seatPrice;
 
@@ -65,14 +65,14 @@ public class Flight {
 	/**
 	 * @return the departureTime
 	 */
-	public Timestamp getDepartureTime() {
+	public LocalDateTime getDepartureTime() {
 		return departureTime;
 	}
 
 	/**
 	 * @param departureTime the departureTime to set
 	 */
-	public void setDepartureTime(Timestamp departureTime) {
+	public void setDepartureTime(LocalDateTime departureTime) {
 		this.departureTime = departureTime;
 	}
 

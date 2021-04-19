@@ -45,7 +45,7 @@ public abstract class BaseDAO<T> {
 			count++;
 		}
 		pstmt.executeUpdate();
-		ResultSet rs = pstmt.executeQuery();
+		ResultSet rs = pstmt.getGeneratedKeys();
 
 		while (rs.next()) {
 			return rs.getInt(1);
@@ -57,9 +57,11 @@ public abstract class BaseDAO<T> {
 	public List<T> read(String sql, Object[] vals) throws ClassNotFoundException, SQLException {
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		int count = 1;
-		for (Object o : vals) {
-			pstmt.setObject(count, o);
-			count++;
+		if (vals != null) {
+			for (Object o : vals) {
+				pstmt.setObject(count, o);
+				count++;
+			}
 		}
 		ResultSet rs = pstmt.executeQuery();
 		return extractData(rs);

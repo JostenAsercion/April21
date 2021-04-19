@@ -34,13 +34,18 @@ public class AirportDAO extends BaseDAO<Airport> {
 	}
 
 	// Removes an airport from the airport table
-	public void deleteairport(Airport airport) throws ClassNotFoundException, SQLException {
+	public void deleteAirport(Airport airport) throws ClassNotFoundException, SQLException {
 		save("delete from airport where iata_id = ?", new Object[] { airport.getAirportCode() });
 	}
 
 	// Returns a list of all airports
-	public List<Airport> getAllairports() throws ClassNotFoundException, SQLException {
+	public List<Airport> getAllAirports() throws ClassNotFoundException, SQLException {
 		return read("select * from airport", null);
+	}
+
+	public Airport getAirportFromId(String id) throws ClassNotFoundException, SQLException {
+		List<Airport> temp = read("select * from airport where iata_id = ?", new Object[] { id });
+		return temp.get(0);
 	}
 
 	// Returns a list from a result set

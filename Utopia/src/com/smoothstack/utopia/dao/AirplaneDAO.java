@@ -44,7 +44,9 @@ public class AirplaneDAO extends BaseDAO<Airplane> {
 		while (rs.next()) {
 			Airplane airplane = new Airplane();
 			airplane.setId(rs.getInt("id"));
-			airplane.setAirplaneType((AirplaneType) rs.getObject("type_id"));
+			AirplaneType type = new AirplaneType();
+			type.setType(rs.getInt("type_id"));
+			airplane.setAirplaneType(type);
 
 			airplanes.add(airplane);
 		}
